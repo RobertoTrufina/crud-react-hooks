@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:wght@100&display=swap');
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #212121;
+    color: whitesmoke;
+    flex-direction: column;
+
+}
+
+.main-header {
+    font-family: 'Montserrat', sans-serif;
+}
