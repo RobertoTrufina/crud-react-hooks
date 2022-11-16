@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-import './create.css'
+import '../styles/create.css'
 
 import axios from "axios"
 import { useNavigate } from "react-router-dom"

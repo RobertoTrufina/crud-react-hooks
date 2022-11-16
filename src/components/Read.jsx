@@ -21,57 +21,63 @@ export default function Read() {
         localStorage.setItem('Last Name', lastName)
         localStorage.setItem('Checkbox Value', checkbox)
     }
-    
+
     const getData = () => {
         axios.get(`https://63461eb2745bd0dbd376cf16.mockapi.io/CrudApi`)
-        .then((getData) => {
-            setAPIData(getData.data)
-        })        
+            .then((getData) => {
+                setAPIData(getData.data)
+            })
     }
-    
+
     const onDelete = (id) => {
         axios.delete(`https://63461eb2745bd0dbd376cf16.mockapi.io/CrudApi/${id}`)
-        .then(() => {
-            getData()
-        })
+            .then(() => {
+                getData()
+            })
     }
 
     return (
 
-        <div>
-            <Table singleLine>
-                <Table.Header>
-                    <Table.Row>
-                        <Table.HeaderCell>First Name</Table.HeaderCell>
-                        <Table.HeaderCell>Last Name</Table.HeaderCell>
-                        <Table.HeaderCell>Checkbox Value</Table.HeaderCell>
-                        <Table.HeaderCell>Update</Table.HeaderCell>
-                        <Table.HeaderCell>Delete</Table.HeaderCell>
-                    </Table.Row>
-                </Table.Header>
+        <>
+           <Link to='/'>Voltar</Link> 
 
-                <Table.Body>
-                    {APIData.map((data) => {
-                        return (
-                            <Table.Row >
-                                <Table.Cell>{data.firstName}</Table.Cell>
-                                <Table.Cell>{data.lastName}</Table.Cell>
-                                <Table.Cell>{data.checkbox ? 'Checked' : 'Unchecked'}</Table.Cell>
-                                <Link to='/update'>
-                                    <Table.Cell>
-                                        <Button onClick={() => setData(data)}>Update</Button>
-                                    </Table.Cell>
-                                </Link>
+            <div>
+                <Table singleLine>
+
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell>First Name</Table.HeaderCell>
+                            <Table.HeaderCell>Last Name</Table.HeaderCell>
+                            <Table.HeaderCell>Checkbox Value</Table.HeaderCell>
+                            <Table.HeaderCell>Update</Table.HeaderCell>
+                            <Table.HeaderCell>Delete</Table.HeaderCell>
+                        </Table.Row>
+                    </Table.Header>
+
+                    <Table.Body>
+                        {APIData.map((data) => {
+                            return (
+                                <Table.Row >
+                                    <Table.Cell>{data.firstName}</Table.Cell>
+                                    <Table.Cell>{data.lastName}</Table.Cell>
+                                    <Table.Cell>{data.checkbox ? 'Checked' : 'Unchecked'}</Table.Cell>
+                                    <Link to='/update'>
+                                        <Table.Cell>
+                                            <Button onClick={() => setData(data)}>Update</Button>
+                                        </Table.Cell>
+                                    </Link>
                                     <Table.Cell>
                                         <Button onClick={() => onDelete(data.id)}>Delete</Button>
                                     </Table.Cell>
-                            </Table.Row>
-                        )
-                    })}
-                </Table.Body>
-            </Table>
+                                </Table.Row>
+                            )
+                        })}
+                    </Table.Body>
+                </Table>
 
 
-        </div>
+            </div>
+        </>
+
     )
 }

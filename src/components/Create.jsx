@@ -1,10 +1,9 @@
 import React, { useState } from "react"
-import { Button, Checkbox, Form } from 'semantic-ui-react'
-import './create.css'
+import { Button, Checkbox, Form} from 'semantic-ui-react'
+import '../styles/create.css'
 
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-
 
 function Create() {
 
@@ -12,8 +11,7 @@ function Create() {
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [checkbox, setCheckbox] = useState(false)
-    
+    const [checkbox, setCheckbox] = useState(false)    
 
     const postData = () => {
         axios.post(`https://63461eb2745bd0dbd376cf16.mockapi.io/CrudApi`, {            
@@ -26,6 +24,8 @@ function Create() {
     }
 
     return (
+        
+       
         <Form className="create-form">
             <Form.Field>
                 <label>First Name</label>
