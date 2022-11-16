@@ -39,7 +39,7 @@ export default function Read() {
     return (
 
         <>
-           <Link to='/'>Voltar</Link> 
+            <Link to='/'>Voltar</Link>
 
             <div>
                 <Table singleLine>
